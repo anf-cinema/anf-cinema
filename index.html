@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANF CINEMA</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            color: #f8e7a1; /* GOLD PREMIUM */
+            text-align: center;
+            background: radial-gradient(circle at top, #111 0%, #000 60%, #000 100%);
+        }
+
+        /* PREMIUM GOLD GLOW */
+        .gold-glow {
+            text-shadow: 0 0 8px #b58b00,
+                         0 0 16px #d4af37,
+                         0 0 28px #ffea8a,
+                         0 0 50px #ffde55;
+        }
+
+        .container {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 18px rgba(255, 215, 0, 1));
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #ffdf7f;
+            text-shadow: 0 0 20px #d4af37, 0 0 40px #ffdf7f;
+        }
+
+        .menu-box {
+            margin: auto;
+            width: 90%;
+            max-width: 420px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 215, 0, 0.08);
+            backdrop-filter: blur(14px);
+            border: 2px solid rgba(255, 215, 0, 0.25);
+            box-shadow: 0 0 25px rgba(255, 215, 100, 0.25),
+                        inset 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .btn {
+            display: block;
+            margin: 20px auto;
+            padding: 16px 40px;
+            font-size: 24px;
+            color: #000;
+            background: linear-gradient(135deg, #f8d568, #d4af37, #f8d568);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: 0.25s;
+            border: 2px solid #d4af37;
+            font-weight: 700;
+            box-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #ffe7a1, #f8d568, #ffe7a1);
+            box-shadow: 0 0 25px rgba(255, 225, 140, 1);
+        }
+
+        .identitas {
+            margin-top: 45px;
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .identitas a {
+            color: #ffdf7f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .identitas a:hover {
+            text-shadow: 0 0 12px #ffdf7f;
+        }
+            /* ANIMASI SHIMMER GOLD PREMIUM */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .btn {
+            background: linear-gradient(120deg, #f8d568, #d4af37, #f8d568);
+            background-size: 200% 200%;
+        }
+
+        .btn:hover {
+            animation: shimmer 1.6s linear infinite;
+        }
+
+        /* GARIS EMAS ANIMASI */
+        .menu-box {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffdf7f, transparent);
+            animation: garis-atas 3s linear infinite;
+        }
+
+        @keyframes garis-atas {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .menu-box::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffdf7f, transparent);
+            animation: garis-bawah 3s linear infinite reverse;
+        }
+
+        @keyframes garis-bawah {
+            0% { right: -100%; }
+            100% { right: 100%; }
+        }
+        /* EFEK PARTIKEL CAHAYA EMAS DENGAN GERAK MELINGKAR */ (GOLD DUST) */
+        .gold-dust {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #fff7c2 0%, #ffdd66 60%, transparent 100%);
+            border-radius: 50%;
+            opacity: 0.9;
+            animation: gold-float 6s linear infinite;
+        }
+
+        @keyframes gold-float {
+            0% {
+                transform: translate(0, 0) scale(0.6) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-20px, -60vh) scale(1) rotate(180deg);
+            }
+            100% {
+                transform: translate(20px, -120vh) scale(1.4) rotate(360deg);
+                opacity: 0;
+            }
+        }
+            100% {
+                transform: translateY(-120vh) scale(1.3);
+                opacity: 0;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="gold-dust">
+        <!-- PARTIKEL EMAS OTOMATIS 40 BUAH -->
+        <script>
+            for (let i = 0; i < 40; i++) {
+                let p = document.createElement("div");
+                p.classList.add("particle");
+                p.style.left = Math.random() * 100 + "%";
+                p.style.bottom = -20 + "px";
+                p.style.animationDuration = (4 + Math.random() * 4) + "s";
+                p.style.opacity = 0.4 + Math.random() * 0.6;
+                p.style.width = p.style.height = (3 + Math.random() * 6) + "px";
+                document.querySelector('.gold-dust').appendChild(p);
+            }
+        </script>
+    </div>
+</head>
+
+<body>
+    <div class="container">
+        <img src="LOGO ANF CINEMA PUTIH.png" class="logo" alt="LOGO ANF CINEMA PUTIH.png">
+
+        <h1>ANF CINEMA</h1>
+
+        <div class="menu-box">
+            <a class="btn" href="https://mohammadfahruddin1-collab.github.io/1/">LIVE</a>
+            <a class="btn" href="https://drive.google.com/drive/folders/1XRJlsp6e6ZX8KHXP-rrbkHJZT9ribG_s?usp=drive_link">HISTORY</a>
+        </div>
+
+        <div class="identitas">
+            <p>Email: <a href="mailto:anfcinema@gmail.com">anfcinema@gmail.com</a></p>
+            <p>YouTube: <a href="https://youtube.com" target="_blank">ANF CINEMA</a></p>
+            <p>WhatsApp: <a href="https://wa.me/6285259279812" target="_blank">+62 85259279812</a></p>
+        </div>
+    </div>
+</body>
+</html>
